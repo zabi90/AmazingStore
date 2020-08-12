@@ -1,0 +1,70 @@
+.nav-link-black {
+	color: black;
+}
+
+.navbar-bg-color{
+    background-color: #F5C935;
+}
+.navbar-main{
+    max-width:100%;
+}
+.card-image{
+    height: 200px;
+}
+.card-layout{
+ margin-bottom: 16px;
+ height: 320px;
+}
+.card-body-layout{
+    height: 100px;
+    background-color: #6660d3; 
+}
+
+.header-line{
+    background-color: #6660d3; 
+    height: 5px;
+}
+.cart-btn{
+    color: white; 
+    background-color: #6660d3;
+}
+.add-cart-button{
+    color: white; 
+    background-color: #F5C935;
+}
+
+
+.main-content{
+    padding-top: 16px;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1.0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+
+.custom-toggler.navbar-toggler {
+    border-color: rgb(255, 255, 255);
+  } 
+/* unvisited link */
+a:link {
+    color: black;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: black;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color:whitesmoke;
+  }
+  
+  /* selected link */
+  a:active {
+    color: black;
+  }
+
+  li{
+    margin-top: 8px;
+  }
