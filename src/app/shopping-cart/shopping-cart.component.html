@@ -1,0 +1,95 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div *ngIf="cartList.length > 0; then cartItems else noItems"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Using template approch-->
+
+<ng-template #cartItems>
+
+    <div class="row">
+
+        <table class="table" style="margin-top: 16px;">
+            <thead class="thead-blue">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let cartItem of cartList;">
+                <tr>
+                    <th class="td" scope="row">{{cartItem.id}}</th>
+                    <td class="td"><img src={{cartItem.image}} class="table-image" /></td>
+                    <td class="td">{{cartItem.title}}</td>
+                    <td class="td">{{cartItem.price}}.Rs</td>
+                    <td class="td"><span class="remove-icon" (click)="onRemove(cartItem)"><i class="fa fa-trash" style="color:red" aria-hidden="true"></i></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="row justify-content-end" style="margin-right:16px;">
+        <div>
+            <h2>Total</h2>
+            <h3>{{total}}.Rs</h3>
+        </div>
+    </div>
+
+    <div class="row justify-content-center" style="margin-bottom: 5%;">
+
+        <div class="col-md-6">
+            <form>
+                <div class="form-group">
+                    <label for="nameField">Name</label>
+                    <input ngModel #name="ngModel" name="name" type="text" required minlength="3" maxlength="10" (change)="onNameChanged(name.value)" class="form-control" id="nameField" placeholder="Enter your name" />
+                    <div class="error-message" *ngIf="name.touched && !name.valid">
+                        <small *ngIf="name.errors.required">Please enter your name.</small>
+                        <small *ngIf="name.errors.minlength">Name length atleast {{name.errors.minlength.requiredLength}} characters.</small>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="emailField">Email</label>
+                    <input ngModel #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" required type="email" name="email" (change)="onEmailChanged(email.value)" class="form-control" id="emailField" placeholder="Enter your email" />
+                    <div class="error-message" *ngIf="email.touched && !email.valid">
+                        <small *ngIf="email.errors.required">Please enter your email.</small>
+                        <small *ngIf="email.errors.pattern">Please enter valid email.</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="addressField">Address-Details</label>
+                    <textarea ngModel #address="ngModel" required maxlength="100" name="address" required row="5" name="address" (change)="onAddressChanged(address.value)" class="form-control" id="addressField" placeholder="Enter your address details"></textarea>
+                    <div class="error-message" *ngIf="address.touched && !address.valid">
+                        <small *ngIf="address.errors.required">Please enter your address.</small>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <button (click)="(name.valid && email.valid && address.valid) ? placeOrder() : isError = true " type="button" class="btn add-cart-button">Place Order</button>
+                </div>
+                <div class="error-message" *ngIf="isError">
+                    <p>Please fill the reqiured data.</p>
+                </div>
+                <div>
+                    {{orderDetails}}
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</ng-template>
+
+<ng-template #noItems>
+    <div class="row justify-content-center" style="margin-top: 20%;">
+        <span><i class="fa fa-shopping-cart fa-5x" aria-hidden="true" style="color: #6660d3;"></i></span>
+    </div>
+    <div class="row justify-content-center">
+        <h2>You have not any item in cart.</h2>
+    </div>
+</ng-template>

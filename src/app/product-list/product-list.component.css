@@ -1,0 +1,31 @@
+/* unvisited link */
+
+a.cardhiglight:link {
+    color: black;
+}
+
+
+/* visited link */
+
+a.cardhiglight:visited {
+    color: black;
+}
+
+
+/* mouse over link */
+
+a.cardhiglight:hover {
+    color: rgba(0, 0, 0, 0.199);
+    text-decoration: none;
+}
+
+
+/* selected link */
+
+a.cardhiglight:active {
+    color: black;
+}
+
+.price {
+    color: #F5C935;
+}

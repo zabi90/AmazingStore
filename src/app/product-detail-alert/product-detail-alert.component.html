@@ -1,0 +1,30 @@
+<!-- The Modal -->
+<div [style.display]="block" id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content" *ngIf="product">
+        <span (click)="close()" class="close">&times;</span>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4">
+                    <img style="width: 100%; height: 100%; object-fit: cover;" src={{product.image}}/>
+                </div>
+                <div class="col-xl-8">
+                    <h2>{{product.title}}</h2>
+                    <p>
+                        {{product.description}}
+                    </p>
+                    <p class="price">
+                        {{product.price}}.Rs
+                    </p>
+                    <button (click)="addItemToCart(product)" class="btn cart-btn" style="width: 100%;">Add to Cart</button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>

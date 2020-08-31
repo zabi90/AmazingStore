@@ -1,0 +1,31 @@
+.thead-blue {
+    background-color: #6660d3;
+    color: white;
+}
+
+.table-image {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.td {
+    vertical-align: middle;
+}
+
+.form-control:focus {
+    border: 1px solid #6660d3;
+}
+
+.form-control.ng-touched.ng-invalid {
+    border: 1px solid red;
+}
+
+.error-message {
+    color: red;
+    margin-left: 10px;
+}
+
+.remove-icon {
+    cursor: pointer;
+}

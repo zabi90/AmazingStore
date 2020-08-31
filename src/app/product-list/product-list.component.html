@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-3">
+        <!-- <div class="row justify-content-center">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    Featured
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+            </div>
+        </div> -->
+
+    </div>
+    <div class="col-7 main-content">
+        <div class="row">
+            <h3>Products</h3>
+        </div>
+        <hr />
+        <!--main product view-->
+
+        <div class="row">
+
+            <div class="col" *ngFor="let product of products;">
+
+                <div class="card card-layout cardhiglight" style="width: 14rem;">
+
+                    <a (click)="navigateToDetail(product)"><img class="card-img-top card-image" src={{product.image}} alt="Card image cap" /></a>
+
+                    <div class="card-body">
+                        <p class="card-text text-truncate">
+                            {{product.title}}
+                        </p>
+                        <div class="row justify-content-center">
+                            <button class="btn add-cart-button" (click)="addToCart(product)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="(products.length == 0 && !isLoading)" class="row justify-content-center">
+            <h2>No products available.</h2>
+        </div>
+        <div *ngIf="isLoading" class="row justify-content-center">
+            <mat-spinner [diameter]=40 style="margin-top: 30%;"></mat-spinner>
+        </div>
+
+    </div>
+    <div class="col-2">
+
+    </div>
+</div>
+
+<app-product-detail-alert [display]="dialogState" (newItemEvent)="showDialog($event)" [productData]="product"></app-product-detail-alert>

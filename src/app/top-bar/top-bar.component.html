@@ -1,0 +1,53 @@
+<div class="header-line"></div>
+<!--navigation view-->
+<nav class="navbar sticky-top navbar-expand-lg navbar-main navbar-bg-color">
+    <a class="navbar-brand" style="color: black; float: right; width: 25%;" href="#">Amazing Store
+    </a>
+    <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+        <div class="navbar-nav" style="width: 50%;">
+            <a class="nav-item nav-link nav-link-black" href="#">
+                <i class="fa fa-map-marker" aria-hidden="true"></i> My city: <span style="color: cornflowerblue;">Sialkot</span></a>
+            <a class="nav-item nav-link nav-link-black" href="#">
+                <i class="fa fa-phone" aria-hidden="true"></i> +9203310202020
+            </a>
+
+        </div>
+
+        <div class="navbar-nav">
+
+            <a class="nav-item nav-link navigation" routerLink="/product-list" routerLinkActive="active">Products</a>
+            <a class="nav-item nav-link navigation">Shipping</a>
+            <a class="nav-item nav-link navigation">Company</a>
+            <a class="nav-item nav-link navigation">My Account</a>
+        </div>
+
+    </div>
+
+</nav>
+
+<!--search row-->
+<div class="row navbar-bg-color" style="padding-bottom: 1%; padding-top: 2%;">
+    <div class="container">
+        <ul class="nav justify-content-center">
+            <li class="nav-item" style="width: 80%;">
+                <div class="row justify-content-center">
+                    <input class="form-control" type="search" placeholder="Search products by SKU or name" aria-label="Search products by SKU or name" style="width: 80%;" />
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="btn cart-btn" routerLink="/shopping-cart" routerLinkActive="active">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <span style="padding: 8px;">My Cart</span>
+                    <span>({{cartCount}})</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
