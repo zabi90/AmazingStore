@@ -42,12 +42,13 @@
     </div>
 
     <div class="row justify-content-center" style="margin-bottom: 5%;">
-
+        <!-- {{userFrom.value|json}}
+        <br> {{orderDetail| json}} -->
         <div class="col-md-6">
-            <form>
+            <form #userFrom="ngForm">
                 <div class="form-group">
                     <label for="nameField">Name</label>
-                    <input ngModel #name="ngModel" name="name" type="text" required minlength="3" maxlength="10" (change)="onNameChanged(name.value)" class="form-control" id="nameField" placeholder="Enter your name" />
+                    <input [(ngModel)]="orderDetail.name" #name="ngModel" name="name" type="text" required minlength="3" maxlength="10" (change)="onNameChanged(name.value)" class="form-control" id="nameField" placeholder="Enter your name" />
                     <div class="error-message" *ngIf="name.touched && !name.valid">
                         <small *ngIf="name.errors.required">Please enter your name.</small>
                         <small *ngIf="name.errors.minlength">Name length atleast {{name.errors.minlength.requiredLength}} characters.</small>
@@ -56,7 +57,8 @@
                 </div>
                 <div class="form-group">
                     <label for="emailField">Email</label>
-                    <input ngModel #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" required type="email" name="email" (change)="onEmailChanged(email.value)" class="form-control" id="emailField" placeholder="Enter your email" />
+                    <input [(ngModel)]="orderDetail.email" #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" required type="email" name="email" (change)="onEmailChanged(email.value)" class="form-control" id="emailField" placeholder="Enter your email"
+                    />
                     <div class="error-message" *ngIf="email.touched && !email.valid">
                         <small *ngIf="email.errors.required">Please enter your email.</small>
                         <small *ngIf="email.errors.pattern">Please enter valid email.</small>
@@ -64,15 +66,15 @@
                 </div>
                 <div class="form-group">
                     <label for="addressField">Address-Details</label>
-                    <textarea ngModel #address="ngModel" required maxlength="100" name="address" required row="5" name="address" (change)="onAddressChanged(address.value)" class="form-control" id="addressField" placeholder="Enter your address details"></textarea>
+                    <textarea [(ngModel)]="orderDetail.address" #address="ngModel" required maxlength="100" name="address" required row="5" name="address" (change)="onAddressChanged(address.value)" class="form-control" id="addressField" placeholder="Enter your address details"></textarea>
                     <div class="error-message" *ngIf="address.touched && !address.valid">
                         <small *ngIf="address.errors.required">Please enter your address.</small>
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <button (click)="(name.valid && email.valid && address.valid) ? placeOrder() : isError = true " type="button" class="btn add-cart-button">Place Order</button>
+                    <button [disabled]="!userFrom.form.valid" (click)="(name.valid && email.valid && address.valid) ? placeOrder() : isError = true " type="button" class="btn add-cart-button">Place Order</button>
                 </div>
-                <div class="error-message" *ngIf="isError">
+                <div class="error-message" *ngIf="!userFrom.form.valid">
                     <p>Please fill the reqiured data.</p>
                 </div>
                 <div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartServiceService } from '../services/cart-service.service';
+import {Product} from '../models/product';
+import {OrderDetail} from '../models/orderDetail';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -8,18 +10,16 @@ import { CartServiceService } from '../services/cart-service.service';
 })
 export class ShoppingCartComponent implements OnInit {
   
-  isError = false;
-
-  name:string = "";
-  email:string="";
-  address:string="";
   
   cartList:any;
   total:number;
   orderDetails : string ="";
+  orderDetail: OrderDetail;
+
   constructor(private cartService : CartServiceService) { 
     this.cartList = cartService.cartList;
     this.total = cartService.getTotal();
+    this.orderDetail = new OrderDetail("","","", this.cartList);
   }
 
   ngOnInit(): void {
@@ -27,22 +27,19 @@ export class ShoppingCartComponent implements OnInit {
 
   placeOrder(){
     debugger;
-    this.orderDetails = JSON.stringify({name:this.name,email:this.email,address:this.address,items:this.cartList});
+    this.orderDetails = JSON.stringify(this.orderDetail);
   }
 
   onNameChanged(name:string){
-    this.isError = false;
-    this.name = name;
+    
   }
 
   onEmailChanged(email:string){
-    this.isError = false;
-    this.email = email;
+
   }
 
   onAddressChanged(address:string){
-    this.isError = false;
-    this.address = address;
+   
   }
 
   onRemove(item:any){

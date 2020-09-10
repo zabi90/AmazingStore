@@ -40,6 +40,9 @@
                 </div>
             </div>
         </div>
+        <div *ngIf="productService.isError">
+            <small style="color: red;">{{productService.errorMessage}}</small>
+        </div>
         <div *ngIf="(products.length == 0 && !isLoading)" class="row justify-content-center">
             <h2>No products available.</h2>
         </div>

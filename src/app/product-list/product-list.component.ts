@@ -11,12 +11,13 @@ import {Product} from '../models/product';
 })
 export class ProductListComponent implements OnInit {
 
+  errorMessage = "";
   dialogState : string ="none";
   product:Product;
   isLoading:boolean = true;
   products:Product [] = [];
 
-  constructor(private productService:ProductServiceService,private cartService:CartServiceService) { 
+  constructor(public productService:ProductServiceService,private cartService:CartServiceService) { 
     //this.loadProduct();
   }
 
@@ -41,6 +42,7 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
     this.productService.getProductList().subscribe((response:Product[])=>{
+      debugger;
       this.products = response;
       this.isLoading = false;
     });

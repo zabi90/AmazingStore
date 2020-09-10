@@ -12,7 +12,9 @@ const PRODUCT_END_POINT: string = "products/1";
 })
 export class ProductServiceService {
 
-  
+  isError = false;
+  errorMessage = "";
+
   products = new Array();
   constructor(private httpClient: HttpClient) {
 
@@ -39,7 +41,8 @@ export class ProductServiceService {
  */
 private handleError<T>(operation = 'operation', result?: T) {
   return (error: any): Observable<T> => {
-
+    this.isError = true;
+    this.errorMessage = error.message;
     // TODO: send the error to remote logging infrastructure
     console.error(error); // log to console instead
 
