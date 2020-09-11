@@ -8,8 +8,6 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class CartServiceService {
 
-
-
   subject : Subject<number>;
 
   cartList = new Array<Product>();
@@ -39,7 +37,7 @@ export class CartServiceService {
   }
 
   removeItem(item:Product){
-    debugger;
+   
     let index  = this.cartList.findIndex(x => x.id == item.id);
     this.cartList.splice(index,1)
     this.subject.next( this.cartList.length);

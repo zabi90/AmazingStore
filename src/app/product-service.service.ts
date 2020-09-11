@@ -11,7 +11,7 @@ const PRODUCT_END_POINT: string = "products/1";
   providedIn: 'root'
 })
 export class ProductServiceService {
-
+ 
   isError = false;
   errorMessage = "";
 
@@ -20,7 +20,7 @@ export class ProductServiceService {
 
   }
 
-  public getProductList(): Observable<Product[]> {
+  public getProductList() {
     return this.httpClient.get<Product[]>( BASE_URL + PRODUCT_END_POINT)
     .pipe(
       catchError(this.handleError<Product[]>('productList',[]))
