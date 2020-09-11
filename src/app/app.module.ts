@@ -12,7 +12,10 @@ import {ProductServiceService} from './product-service.service';
 import {CartServiceService} from './services/cart-service.service';
 import { ProductDetailAlertComponent } from './product-detail-alert/product-detail-alert.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OrderPlaceDialogComponent } from './order-place-dialog/order-place-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +24,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProductListComponent,
     ShoppingCartComponent,
     ProductDetailAlertComponent,
+    OrderPlaceDialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule,
+    MatDialogModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule

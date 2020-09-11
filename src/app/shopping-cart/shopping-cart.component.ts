@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CartServiceService } from '../services/cart-service.service';
-import {Product} from '../models/product';
 import {OrderDetail} from '../models/orderDetail';
+import {MatDialog} from '@angular/material/dialog';
+import {OrderPlaceDialogComponent} from '../order-place-dialog/order-place-dialog.component'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -16,7 +18,7 @@ export class ShoppingCartComponent implements OnInit {
   orderDetails : string ="";
   orderDetail: OrderDetail;
 
-  constructor(private cartService : CartServiceService) { 
+  constructor(private cartService : CartServiceService,public dialog: MatDialog,private router:Router) { 
     this.cartList = cartService.cartList;
     this.total = cartService.getTotal();
     this.orderDetail = new OrderDetail("","","", this.cartList);
@@ -28,6 +30,16 @@ export class ShoppingCartComponent implements OnInit {
   placeOrder(){
     debugger;
     this.orderDetails = JSON.stringify(this.orderDetail);
+    this.openDialog()
+    this.cartService.clearItems()
+  }
+
+  openDialog() {
+    let dialogRef  = this.dialog.open(OrderPlaceDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.router.navigate(['/']);
+    });
   }
 
   onNameChanged(name:string){

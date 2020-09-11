@@ -10,7 +10,7 @@ import {Product} from '../models/product';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-
+  durationInSeconds = 3;
   errorMessage = "";
   dialogState : string ="none";
   product:Product;
@@ -20,6 +20,7 @@ export class ProductListComponent implements OnInit {
   constructor(public productService:ProductServiceService,private cartService:CartServiceService) { 
     //this.loadProduct();
   }
+
 
   private async loadProduct() {
     this.isLoading = true;
