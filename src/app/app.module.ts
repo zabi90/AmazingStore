@@ -16,8 +16,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrderPlaceDialogComponent } from './order-place-dialog/order-place-dialog.component';
-import { DownloaderComponent } from './doument.downloader/doument.downloader.component';
-import { NgxDocViewerModule } from 'ngx-doc-viewer';
+
 
 
 
@@ -28,8 +27,7 @@ import { NgxDocViewerModule } from 'ngx-doc-viewer';
     ProductListComponent,
     ShoppingCartComponent,
     ProductDetailAlertComponent,
-    OrderPlaceDialogComponent,
-    DownloaderComponent,
+    OrderPlaceDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -39,8 +37,7 @@ import { NgxDocViewerModule } from 'ngx-doc-viewer';
     MatDialogModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule,
-    NgxDocViewerModule
+    HttpClientModule
   ],
   providers: [
     ProductServiceService,
