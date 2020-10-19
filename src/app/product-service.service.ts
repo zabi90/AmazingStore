@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders,HttpEvent,HttpRequest } from '@angular/common/http';
 import { Observable,of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import {Product} from './models/product';
@@ -18,6 +18,15 @@ export class ProductServiceService {
   products = new Array();
   constructor(private httpClient: HttpClient) {
 
+  }
+
+  public downloadFile(url: string): Observable<HttpEvent<Blob>> {
+    return this.httpClient.request(new HttpRequest(
+      'GET', `${url}`, null,
+      {
+        // reportProgress: true,
+        responseType: 'blob'
+      }));
   }
 
   public getProductList() {
