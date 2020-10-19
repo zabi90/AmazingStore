@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Doument.DownloaderComponent } from './doument.downloader.component';
+import { DownloaderComponent } from './doument.downloader.component';
 
 describe('Doument.DownloaderComponent', () => {
-  let component: Doument.DownloaderComponent;
-  let fixture: ComponentFixture<Doument.DownloaderComponent>;
+  let component: DownloaderComponent;
+  let fixture: ComponentFixture<DownloaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Doument.DownloaderComponent ]
+      declarations: [ DownloaderComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Doument.DownloaderComponent);
+    fixture = TestBed.createComponent(DownloaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
