@@ -27,7 +27,7 @@ export class ProductServiceService {
     );
   }
   public async getProducts(): Promise<any> {
-    const respnose = await fetch("http://private-ba0621-dummy95.apiary-mock.com/products/1");
+    const respnose = await fetch("http://private-ba0621-dummy95.apiary-mock.com/products");
     const body = await respnose.json();
     this.products = body;
     return body;
