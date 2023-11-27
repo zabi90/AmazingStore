@@ -5,7 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import {Product} from './models/product';
 
 const BASE_URL: string = "https://private-ba0621-dummy95.apiary-mock.com/";
-const PRODUCT_END_POINT: string = "products/1";
+const PRODUCT_END_POINT: string = "products";
 
 @Injectable({
   providedIn: 'root'
