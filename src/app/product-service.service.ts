@@ -21,13 +21,13 @@ export class ProductServiceService {
   }
 
   public getProductList() {
-    return this.httpClient.get<Product[]>("http://private-ba0621-dummy95.apiary-mock.com/products")
+    return this.httpClient.get<Product[]>("https://fakestoreapi.com/products")
     .pipe(
       catchError(this.handleError<Product[]>('productList',[]))
     );
   }
   public async getProducts(): Promise<any> {
-    const respnose = await fetch("http://private-ba0621-dummy95.apiary-mock.com/products");
+    const respnose = await fetch("https://fakestoreapi.com/products");
     const body = await respnose.json();
     this.products = body;
     return body;
