@@ -4,7 +4,7 @@ import { Observable,of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import {Product} from './models/product';
 
-const BASE_URL: string = "http://private-ba0621-dummy95.apiary-mock.com/products";
+const BASE_URL: string = "https://fakestoreapi.com/";
 const PRODUCT_END_POINT: string = "products";
 
 @Injectable({
@@ -21,13 +21,13 @@ export class ProductServiceService {
   }
 
   public getProductList() {
-    return this.httpClient.get<Product[]>("https://fakestoreapi.com/products")
+    return this.httpClient.get<Product[]>(BASE_URL + PRODUCT_END_POINT)
     .pipe(
       catchError(this.handleError<Product[]>('productList',[]))
     );
   }
   public async getProducts(): Promise<any> {
-    const respnose = await fetch("https://fakestoreapi.com/products");
+    const respnose = await fetch(BASE_URL + PRODUCT_END_POINT);
     const body = await respnose.json();
     this.products = body;
     return body;
